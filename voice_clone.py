@@ -1,4 +1,5 @@
 import os
+os.environ["COQUI_TOS_AGREED"] = "1"
 import torch
 from TTS.api import TTS
 

@@ -4,6 +4,7 @@ FROM nvidia/cuda:12.1.0-base-ubuntu22.04
 # Set system-level environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
+ENV COQUI_TOS_AGREED=1
 
 # Install Python and system dependencies
 RUN apt-get update && apt-get install -y \

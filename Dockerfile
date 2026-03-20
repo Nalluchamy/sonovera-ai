@@ -1,19 +1,20 @@
-# Use an official NVIDIA CUDA image as a parent image
-FROM nvidia/cuda:12.1.0-base-ubuntu22.04
+# Use the official Python 3.9 image which is fully compatible with Coqui TTS (coqpit)
+FROM python:3.9-slim
 
 # Set system-level environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 ENV PYTHONUNBUFFERED=1
 ENV COQUI_TOS_AGREED=1
 
-# Install Python and system dependencies
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    python3.10 \
-    python3-pip \
-    python3-dev \
     ffmpeg \
     libsndfile1 \
     git \
+    curl \
+    gcc \
+    g++ \
+    python3-dev \
     && rm -rf /var/lib/apt/lists/*
 
 # Set the working directory

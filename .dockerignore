@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.env
+chat_history.db
+generated_audio/
+voice_samples/
+.git/
+.vscode/

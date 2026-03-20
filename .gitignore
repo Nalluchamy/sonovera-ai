@@ -1,0 +1,36 @@
+# Python virtual environment
+venv/
+.venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment variables
+.env
+
+# Large audio files and samples
+voice_samples/
+generated_audio/
+*.wav
+*.mp3
+
+# Logs and debug files
+*.log
+err.txt
+err_utf8.txt
+out.txt
+server_debug.log
+startup_err.log
+script_err.log
+streamlit_error.log
+tts_out.txt
+
+# Databases
+*.db
+chat_history.db
+
+# OS files
+.DS_Store
+Thumbs.db

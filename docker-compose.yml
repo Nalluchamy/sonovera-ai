@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  voice-chatbot:
+    build: .
+    container_name: voice_clone_chatbot
+    ports:
+      - "8501:8501"
+    volumes:
+      - .:/app
+      - voice_models:/root/.local/share/tts
+    environment:
+      - NVIDIA_API_KEY=${NVIDIA_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+volumes:
+  voice_models:
+    name: voice_chatbot_models

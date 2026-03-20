@@ -1,4 +1,14 @@
-# 🎙️ AI Voice Clone Chatbot
+---
+title: SONOVERA AI Voice Synthesis
+emoji: 🎙️
+colorFrom: indigo
+colorTo: green
+sdk: docker
+pinned: false
+---
+
+# SONOVERA — AI Voice Synthesis
+ Chatbot
 
 A premium, interactive AI chatbot featuring personalized voice cloning, real-time web search, and vision support. Built with Streamlit, NVIDIA AI, and Coqui TTS.
 

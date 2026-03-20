@@ -32,12 +32,12 @@ COPY . .
 # Ensure generated directories exist with correct permissions
 RUN mkdir -p voice_samples generated_audio static
 
-# Expose the Streamlit port
-EXPOSE 8501
+# Expose the Hugging Face Spaces port
+EXPOSE 7860
 
 # Add a healthcheck to ensure the container is running correctly
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl --fail http://localhost:8501/_stcore/health || exit 1
+  CMD curl --fail http://localhost:7860/ || exit 1
 
-# Command to run the application
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+# Command to run the application using uvicorn
+CMD ["uvicorn", "app_api.py:app", "--host", "0.0.0.0", "--port", "7860"]

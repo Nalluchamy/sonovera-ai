@@ -40,4 +40,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
   CMD curl --fail http://localhost:7860/ || exit 1
 
 # Command to run the application using uvicorn
-CMD ["uvicorn", "app_api.py:app", "--host", "0.0.0.0", "--port", "7860"]
+CMD ["uvicorn", "app_api:app", "--host", "0.0.0.0", "--port", "7860"]

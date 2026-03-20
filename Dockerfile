@@ -27,6 +27,10 @@ COPY requirements.txt .
 RUN pip3 install --no-cache-dir torch torchaudio --index-url https://download.pytorch.org/whl/cu121
 RUN pip3 install --no-cache-dir -r requirements.txt
 
+# Pre-download models to avoid interactive prompts during runtime
+RUN python3 -c "import whisper; whisper.load_model('base')"
+RUN python3 -c "from TTS.api import TTS; TTS(model_name='tts_models/multilingual/multi-dataset/xtts_v2')"
+
 # Copy the rest of the application code
 COPY . .
 
